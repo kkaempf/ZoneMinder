@@ -208,6 +208,8 @@ if ( $command =~ /^(?:start|restart)$/ )
           exit( -1 );
         }
         
+        ZoneMinder::Config::load_configuration();
+        
         if ( $Config{ZM_DYN_DB_VERSION}
              and ( $Config{ZM_DYN_DB_VERSION} ne ZM_VERSION )
         )
