@@ -97,7 +97,7 @@ header( "Content-Type: text/html; charset=utf-8" );
 //setlocale( LC_TIME, 'hu_HU'); //Date and time formatting 4.3.0 and after
 
 setlocale( LC_CTYPE, 'hu_HU.UTF-8');
-setlocale( LC_TIME, 'hu_HU.UTF-8' );
+setlocale( LC_TIME, 'hu_HU.UTF8' );
 
 //
 // Date and time formats, specific to this language
@@ -812,6 +812,10 @@ $CLANG = array(
     'MonitorFunction'      => 'Kamerafunkció: %1$s',
     'RunningRecentVer'     => 'A legfrissebb ZoneMinder verziót használja: v%s.',
     'VersionMismatch'      => 'Verziószám eltérés: rendszerverzió %1$s, adatbázis %2$s.',
+);
+
+$DATE_LANG = array(
+    'CONSOLE_LONG'         => '%Y. %B %d. %A %H:%M',
 );
 
 // The next section allows you to describe a series of word ending and counts used to 

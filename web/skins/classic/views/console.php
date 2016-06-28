@@ -181,6 +181,7 @@ $seqUpFile = getSkinFile( 'graphics/seq-u.gif' );
 $seqDownFile = getSkinFile( 'graphics/seq-d.gif' );
 
 $versionClass = (ZM_DYN_DB_VERSION&&(ZM_DYN_DB_VERSION!=ZM_VERSION))?'errorText':'';
+$usedDateFormat = isset( $DATE_LANG['CONSOLE_LONG'] ) ? $DATE_LANG['CONSOLE_LONG'] :  DATE_FMT_CONSOLE_LONG;
 
 
 xhtmlHeaders( __FILE__, translate('Console') );
@@ -191,7 +192,7 @@ xhtmlHeaders( __FILE__, translate('Console') );
     <input type="hidden" name="view" value="<?php echo $view ?>"/>
     <input type="hidden" name="action" value=""/>
     <div id="header">
-      <h3 id="systemTime"><?php echo preg_match( '/%/', DATE_FMT_CONSOLE_LONG )?strftime( DATE_FMT_CONSOLE_LONG ):date( DATE_FMT_CONSOLE_LONG ) ?></h3>
+      <h3 id="systemTime"><?php echo preg_match( '/%/', $usedDateFormat )?strftime( $usedDateFormat ):date( $usedDateFormat ) ?></h3>
       <h3 id="systemStats"><?php echo translate('Load') ?>: <?php echo getLoad() ?> / <?php echo translate('Disk') ?>: <?php echo getDiskPercent() ?>%</h3>
       <h2 id="title"><a href="http://www.zoneminder.com" target="ZoneMinder">ZoneMinder</a> <?php echo translate('Console') ?> - <?php echo makePopupLink( '?view=state', 'zmState', 'state', $status, canEdit( 'System' ) ) ?> - <?php echo $run_state ?> <?php echo makePopupLink( '?view=version', 'zmVersion', 'version', '<span class="'.$versionClass.'">v'.ZM_VERSION.'</span>', canEdit( 'System' ) ) ?></h2>
       <div class="clear"></div>
