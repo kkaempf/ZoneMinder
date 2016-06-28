@@ -195,14 +195,19 @@ if ( $command =~ /^(?:stop|restart)$/ )
     }
 }
 
-#runCommand( "zmupdate.pl -f" );
-
 if ( $command =~ /^(?:start|restart)$/ )
 {
     my $status = runCommand( "zmdc.pl check" );
 
-    if ( $status eq "stopped" )
-    {
+	if ( $status eq "stopped" )
+	{
+        my $zm_db_init_status = system( "zm_database_init --non-interactive" );
+        if ( $zm_db_init_status ne 0 )
+        {
+          Fatal( "Could not execute zm_database_init" );
+          exit( -1 );
+        }
+        
         if ( $Config{ZM_DYN_DB_VERSION}
              and ( $Config{ZM_DYN_DB_VERSION} ne ZM_VERSION )
         )
