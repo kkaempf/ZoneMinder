@@ -694,7 +694,7 @@ our @options =
     },
     {
         name        => "ZM_OPT_CAMBOZOLA",
-        default     => "no",
+        default     => "yes",
         description => "Is the (optional) cambozola java streaming client installed",
         help        => qqq("
             Cambozola is a handy low fat cheese flavoured Java applet that
@@ -986,7 +986,7 @@ our @options =
     },
     {
         name        => "ZM_PATH_FFMPEG",
-        default     => "@PATH_FFMPEG@",
+        default     => "/usr/bin/ffmpeg",
         description => "Path to (optional) ffmpeg mpeg encoder",
         help        => "This path should point to where ffmpeg has been installed.",
         requires    => [ { name=>"ZM_OPT_FFMPEG", value=>"yes" } ],
@@ -995,7 +995,7 @@ our @options =
     },
     {
         name        => "ZM_FFMPEG_INPUT_OPTIONS",
-        default     => "",
+        default     => "-sameq",
         description => "Additional input options to ffmpeg",
         help        => qqq("
             Ffmpeg can take many options on the command line to control the
