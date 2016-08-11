@@ -155,6 +155,8 @@ sub loadConfigFromDB {
 
 sub saveConfigToDB {
   print( "Saving config to DB\n" );
+  local $SIG{INT} = 'IGNORE';
+  local $SIG{TERM} = 'IGNORE';
   my $dbh = ZoneMinder::Database::zmDbConnect();
   if ( !$dbh )
   {
