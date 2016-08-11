@@ -10,7 +10,10 @@
 #
 
 # Path to installed data directory, used mostly for finding DB upgrade scripts
-ZM_PATH_DATA=@PKGDATADIR@
+ZM_PATH_DATA=/usr/share/zm
+
+# Path to build directory
+ZM_PATH_BUILD=/usr/share/zm
 
 # Path to ZoneMinder binaries
 ZM_PATH_BIN=@BINDIR@
