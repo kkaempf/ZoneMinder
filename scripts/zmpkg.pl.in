@@ -69,6 +69,13 @@ my $state;
 
 my $dbh;
 
+my $zm_db_init_status = system( "zm_database_init --non-interactive" );
+if ( $zm_db_init_status ne 0 )
+{
+  Fatal( "Could not execute zm_database_init" );
+  exit( -1 );
+}
+
 if ( !$command || $command !~ /^(?:start|stop|restart|status|logrot|version)$/ )
 {
     if ( $command )
